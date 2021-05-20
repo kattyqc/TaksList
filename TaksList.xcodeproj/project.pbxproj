@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		3C0C2A842656B7520053F29F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C2A832656B7520053F29F /* AppDelegate.swift */; };
 		3C0C2A862656B7520053F29F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C2A852656B7520053F29F /* SceneDelegate.swift */; };
-		3C0C2A882656B7520053F29F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C2A872656B7520053F29F /* ViewController.swift */; };
+		3C0C2A882656B7520053F29F /* TaksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C2A872656B7520053F29F /* TaksListViewController.swift */; };
 		3C0C2A8B2656B7520053F29F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0C2A892656B7520053F29F /* Main.storyboard */; };
 		3C0C2A8D2656B7550053F29F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C0C2A8C2656B7550053F29F /* Assets.xcassets */; };
 		3C0C2A902656B7550053F29F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0C2A8E2656B7550053F29F /* LaunchScreen.storyboard */; };
+		3C0C2A9D2656D3270053F29F /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C2A9C2656D3270053F29F /* ItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3C0C2A802656B7520053F29F /* TaksList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaksList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0C2A832656B7520053F29F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C0C2A852656B7520053F29F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3C0C2A872656B7520053F29F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3C0C2A872656B7520053F29F /* TaksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaksListViewController.swift; sourceTree = "<group>"; };
 		3C0C2A8A2656B7520053F29F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C0C2A8C2656B7550053F29F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C0C2A8F2656B7550053F29F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C0C2A912656B7550053F29F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C0C2A9C2656D3270053F29F /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,38 @@
 			children = (
 				3C0C2A832656B7520053F29F /* AppDelegate.swift */,
 				3C0C2A852656B7520053F29F /* SceneDelegate.swift */,
-				3C0C2A872656B7520053F29F /* ViewController.swift */,
-				3C0C2A892656B7520053F29F /* Main.storyboard */,
+				3C0C2A9F2656D3340053F29F /* Model */,
+				3C0C2A992656D2D80053F29F /* Controller */,
+				3C0C2A9B2656D2E70053F29F /* View */,
 				3C0C2A8C2656B7550053F29F /* Assets.xcassets */,
 				3C0C2A8E2656B7550053F29F /* LaunchScreen.storyboard */,
 				3C0C2A912656B7550053F29F /* Info.plist */,
 			);
 			path = TaksList;
+			sourceTree = "<group>";
+		};
+		3C0C2A992656D2D80053F29F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3C0C2A872656B7520053F29F /* TaksListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3C0C2A9B2656D2E70053F29F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3C0C2A892656B7520053F29F /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3C0C2A9F2656D3340053F29F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3C0C2A9C2656D3270053F29F /* ItemModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +164,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C0C2A882656B7520053F29F /* ViewController.swift in Sources */,
+				3C0C2A882656B7520053F29F /* TaksListViewController.swift in Sources */,
 				3C0C2A842656B7520053F29F /* AppDelegate.swift in Sources */,
+				3C0C2A9D2656D3270053F29F /* ItemModel.swift in Sources */,
 				3C0C2A862656B7520053F29F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
