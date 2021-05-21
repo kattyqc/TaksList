@@ -10,9 +10,12 @@ import UIKit
 class TaksListViewController: UITableViewController {
 
     var item = [ItemModel]()
+    //file path to save data
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadItems()
      
     }
 
@@ -40,16 +43,39 @@ class TaksListViewController: UITableViewController {
             newItem.title = textField.text!
             self.item.append(newItem)
             
+            self.saveItems()
+            
         }
-        
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new item"
             textField = alertTextField
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-        
     }
     
+    
+    func saveItems() {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(item)
+            try data.write(to: dataFilePath!)
+        } catch {
+            print("Error encoding item, \(error)")
+        }
+        self.tableView.reloadData()
+    }
+    
+    func loadItems() {
+        if let data = try? Data(contentsOf: self.dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                item = try decoder.decode([ItemModel].self, from: data)
+            } catch {
+                print("Error decoding item, \(error)")
+            }
+            self.tableView.reloadData()
+        }
+    }
 }
 
