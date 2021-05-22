@@ -16,7 +16,6 @@ class TaksListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadItems()
-     
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,10 +24,20 @@ class TaksListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaksListCell", for: indexPath)
+        let items = item[indexPath.row]
         cell.textLabel?.text = item[indexPath.row].title
         
+        cell.accessoryType = items.done == true ? .checkmark : .none
         return cell
         
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        item[indexPath.row].done = !item[indexPath.row].done
+        saveItems()
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -54,10 +63,9 @@ class TaksListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
     func saveItems() {
         let encoder = PropertyListEncoder()
-        do {
+        do { //Here data codifing and save in created path
             let data = try encoder.encode(item)
             try data.write(to: dataFilePath!)
         } catch {
